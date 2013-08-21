@@ -1,0 +1,19 @@
+/*
+Theme Name: CABARAN
+Theme URI: http://robotys.net/cabaran-css-theme-wordpress
+Author: Izwan Robotys
+Author URI: http://robotys.net/
+Description: Theme sempena menyahut cabaran CSS yang dianjurkan oleh <a href="#">jomweb.my</a>. Theme semata-mata CSS/3 dan HTML/5. Inspirasi daripada <a href="http://practicaltypography.com">practicaltypography.com</a> dan pelbagai sumber lain.
+Version: 1.0
+License: MIT
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: Cabaran CSS, Jomweb, CSS only
+Text Domain: cabaranCSSjomweb
+*/
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	font-family: ;
+}
