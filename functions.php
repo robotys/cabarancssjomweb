@@ -5,9 +5,43 @@
 		echo '</pre>';
 	}
 
+	function display_link($post = NULL, $field = 'category', $separator = ', ', $class = ''){
+		if($post == NULL) throw('display_link is NULL. Please give some array');
+		else{
+			
+			foreach($post[$field] as $item){
+				$html[] = '<a href="'.$item['link'].'" class="'.$class.'">'.$item['name'].'</a>'; 
+			}
+
+			return implode($html, $separator);
+		}
+	}
+
 	function latest_post(){
-		$my_query = new WP_Query('showposts=2');
+		$my_query = new WP_Query('showposts=1');
 		return looper($my_query);
+	}
+
+	function next_latest_post($count = 10, $in_list){
+		$done = get_post_ids($in_list);
+
+		$my_query = new WP_Query(array('showposts'=>$count,'post__not_in'=>$done));
+		return looper($my_query);
+	}
+
+	function random_post($count = 10, $in_list){
+		$done = get_post_ids($in_list);
+
+		$my_query = new WP_Query(array('showposts'=>$count,'orderby'=>'rand','post__not_in'=>$done));
+		return looper($my_query);
+	}
+
+	function get_post_ids($arr){
+		foreach($arr as $prev){
+			$used_id[] = '-'.$prev['post_id'];
+		}
+
+		return $used_id;
 	}
 
 	function looper($my_query){
@@ -18,6 +52,7 @@
 			$entry['title'] = get_the_title();
 			$entry['date'] = get_the_date('d/m/Y H:i:s');
 			$entry['author'] = get_the_author();
+			$entry['permalink'] = get_permalink();
 
 			$post_category = get_the_category();
 			if($post_category != false){
