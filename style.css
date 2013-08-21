@@ -239,10 +239,11 @@ a:hover{
 	top: 0px;
 	left: 0px;
 	height: 420px;
-	background: #FF9000;
+	/*background: #FF9000;*/
 	float:left;
 	margin-bottom: -363px;
 	overflow: hidden;
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #FF9000), color-stop(1, #FFA000));
 }
 
 .bg_art:before{
